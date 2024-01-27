@@ -127,12 +127,13 @@ To follow this tutorial you will need:
      
    - Let’s stop for a while and check what the code above is doing:
      ```
-    name: the name of your service. It will be displayed in the public URL.
-    location: the region where your service will run. See all the options here.
-    image: The Docker image that will be used to create the container. Cloud Run has direct support for images from the Container Registry and Artifact Registry.
-    traffic: controls the traffic for this revision. The percent property indicates how much traffic will be redirected to this revision. latest_revision specifies that this traffic configuration needs to be used for the latest revision.
-    depends_on: waits for a resource to be ready, in this case, the Cloud Run API.
-    ```
+         name: the name of your service. It will be displayed in the public URL.
+         location: the region where your service will run. See all the options here.
+         image: The Docker image that will be used to create the container. Cloud Run has direct support for images from the Container Registry and Artifact Registry.
+         traffic: controls the traffic for this revision. The percent property indicates how much traffic will be redirected to this revision. latest_revision specifies that this traffic configuration needs to be used for the latest revision.
+         depends_on: waits for a resource to be ready, in this case, the Cloud Run API.
+     
+     ```
    - Invoking the service --> By default, Cloud Run services are private and secured by IAM. To access them, you would need valid credentials with at least the Cloud Run Invoker permission set.
    - Deploying the infrastructure
      `` terraform init ``
@@ -174,7 +175,10 @@ To follow this tutorial you will need:
    - The project was created using the gcloud CLI tool, so you will need to delete it manually. For that, you can run:
      ![Screenshot 2024-01-27 151624](https://github.com/574n13y/GCP-CloudRun/assets/35293085/e2466325-51f5-4496-99d2-abf114446800)
 
-## Gitlab 
+## Gitlab Validate
+
+  ![image](https://github.com/574n13y/GCP-CloudRun/assets/35293085/a2d9bd34-8fd1-464a-9d40-8bd6cdf06940)
+
   ![Screenshot 2024-01-27 135055](https://github.com/574n13y/GCP-CloudRun/assets/35293085/9d771e63-f76b-4a46-91b5-329118d0a52d)
   
   ![Screenshot 2024-01-27 141054](https://github.com/574n13y/GCP-CloudRun/assets/35293085/ecbbedad-7195-44c6-820a-9dbfce0fe536)
