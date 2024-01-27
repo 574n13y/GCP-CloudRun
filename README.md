@@ -64,28 +64,28 @@ To follow this tutorial you will need:
    - Creating your first service
      ```
      terraform {
-    required_version = ">= 0.14"
+       required_version = ">= 0.14"
 
-    required_providers {
-    # Cloud Run support was added on 3.3.0
-    google = ">= 3.3"
-    }
-    }
+       required_providers {
+        # Cloud Run support was added on 3.3.0
+           google = ">= 3.3"
+         }
+       }
 
-    provider "google" {
-    # Replace `PROJECT_ID` with your project
-     project = "vivesh-405513"
-    }
+       provider "google" {
+        # Replace `PROJECT_ID` with your project
+        project = "vivesh-405513"
+       }
 
-    resource "google_project_service" "run_api" {
-     service = "run.googleapis.com"
+       resource "google_project_service" "run_api" {
+        service = "run.googleapis.com"
 
-     disable_on_destroy = true
-      }
+         disable_on_destroy = true
+        }
 
-    resource "google_cloud_run_service" "run_service" {
-     name = "app"
-     location = "us-central1"
+        resource "google_cloud_run_service" "run_service" {
+         name = "app"
+         location = "us-central1"
 
      template {
     spec {
