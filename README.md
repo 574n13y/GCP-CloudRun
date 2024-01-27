@@ -87,41 +87,42 @@ To follow this tutorial you will need:
          name = "app"
          location = "us-central1"
 
-     template {
-    spec {
-      containers {
-         image = "gcr.io/google-samples/hello-app:1.0"
-      }
-    }
-      }
+         template {
+           spec {
+          containers {
+             image = "gcr.io/google-samples/hello-app:1.0"
+               }
+             }
+           }
 
-     traffic {
-    percent         = 100
-    latest_revision = true
-      }
+           traffic {
+          percent         = 100
+          latest_revision = true
+          }
 
-     # Waits for the Cloud Run API to be enabled
-     depends_on = [google_project_service.run_api]
-    }
+            # Waits for the Cloud Run API to be enabled
+           depends_on = [google_project_service.run_api]
+            }
 
-      resource "google_cloud_run_service_iam_member" "run_all_users" {
-      service  = google_cloud_run_service.run_service.name
-      location = google_cloud_run_service.run_service.location
-      role     = "roles/run.invoker"
-      member   = "allUsers"
-      }
+             resource "google_cloud_run_service_iam_member" "run_all_users" {
+             service  = google_cloud_run_service.run_service.name
+             location = google_cloud_run_service.run_service.location
+             role     = "roles/run.invoker"
+             member   = "allUsers"
+             }
 
-           resource "google_storage_bucket" "auto-expire" {
-              name          = "stanley_bucket_iac"
-            location      = "US"
-            force_destroy = true
+                 resource "google_storage_bucket" "auto-expire" {
+                name          = "stanley_bucket_iac"
+                location      = "US"
+               force_destroy = true
 
-        public_access_prevention = "enforced"
-        }
+                public_access_prevention = "enforced"
+               }
 
-       output "service_url" {
-      value = google_cloud_run_service.run_service.status[0].url
-      }
+            output "service_url" {
+            value = google_cloud_run_service.run_service.status[0].url
+             }
+     
      ```
      
    - Let’s stop for a while and check what the code above is doing:
